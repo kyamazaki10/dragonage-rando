@@ -16,10 +16,17 @@ module.exports = function(grunt) {
             }
         },
 
+        concat: {
+            build: {
+                src: ['src/vendor/javascripts/*.js', 'src/app/javascripts/*.js'],
+                dest: 'build/javascripts/<%= pkg.name %>.js'
+            }
+        },
+
         uglify: {
             all: {
                 files: {
-                    'build/javascripts/<%= pkg.name %>.min.js': [
+                    'build/javascripts/<%= pkg.name %>.js': [
                         'src/vendor/javascripts/*.js',
                         'src/app/javascripts/*.js'
                     ]
@@ -44,22 +51,34 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+
+        connect: {
+            server: {
+                options: {
+                    base: 'build',
+                    hostname: 'localhost',
+                    port: 8000,
+                    keepalive: true
+                }
+            }
         }
     });
 
     require('load-grunt-tasks')(grunt);
 
-    /*grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-copy');*/
-
     grunt.registerTask('default', [
-    ]);
-
-    grunt.registerTask('build', 'compiles everything...', [
         'clean',
-        'uglify',
-        'copy'
+        'concat',
+        'copy',
+        'connect'
     ]);
 
+    grunt.registerTask('prod', '', [
+        'clean',
+        'concat',
+        'uglify',
+        'copy',
+        'connect'
+    ])
 };
