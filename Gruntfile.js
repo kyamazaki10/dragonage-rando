@@ -48,6 +48,10 @@ module.exports = function(grunt) {
                         dest: 'build/stylesheets',
                         expand: true,
                         flatten: true
+                    },
+                    {
+                        src: 'src/app/dialogue.json',
+                        dest: 'build/dialogue.json'
                     }
                 ]
             }
