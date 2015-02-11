@@ -1,0 +1,10 @@
+p {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 20px 0;
+}
+
+.dialogue {
+    font-size: 40px;
+    width: 1000px;
+    margin: 0 auto;
+}
