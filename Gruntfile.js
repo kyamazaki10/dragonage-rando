@@ -10,15 +10,31 @@ module.exports = function(grunt) {
             ]
         },
 
+        watch: {
+            files: [
+                'src/**/*'
+            ],
+            tasks: [
+                'clean',
+                'concat',
+                'copy'
+            ]
+        },
+
         clean: {
             build: {
-                src: ['build']
+                src: [
+                    'build'
+                ]
             }
         },
 
         concat: {
             build: {
-                src: ['src/vendor/javascripts/*.js', 'src/app/javascripts/*.js'],
+                src: [
+                    'src/vendor/javascripts/*.js',
+                    'src/app/javascripts/*.js'
+                ],
                 dest: 'build/javascripts/<%= pkg.name %>.js'
             }
         },
@@ -63,7 +79,7 @@ module.exports = function(grunt) {
                     base: 'build',
                     hostname: 'localhost',
                     port: 8000,
-                    keepalive: true
+                    keepalive: false
                 }
             }
         }
@@ -75,7 +91,8 @@ module.exports = function(grunt) {
         'clean',
         'concat',
         'copy',
-        'connect'
+        'connect',
+        'watch'
     ]);
 
     grunt.registerTask('prod', '', [
