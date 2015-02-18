@@ -1,10 +1,39 @@
-p {
+body {
     font-family: Helvetica, Arial, sans-serif;
-    margin: 20px 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #434343;
+    margin: 0;
+    padding: 25px 0 0 0;
+}
+
+p {
+    margin: 25px 0;
+}
+
+.header {
+    border-bottom: 1px dashed #CCC;
+    padding: 0 0 25px 0;
+    background-color: #EEE;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.refresh {
+    font-size: 13px;
+    font-style: italic;
+    color: #999;
+    margin: 0;
 }
 
 .dialogue {
     font-size: 40px;
-    width: 1000px;
-    margin: 0 auto;
 }
